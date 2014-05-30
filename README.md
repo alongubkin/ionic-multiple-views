@@ -2,7 +2,7 @@ ionic-multiple-views
 ====================
 
 
-**ionic-multiple-views** is a [Ionic](http://ionicframework.com/) extension that allows you to have more than one `<ion-nav-view>` in a screen. 
+**ionic-multiple-views** is a [Ionic](http://ionicframework.com/) extension that allows you to have more than one `<ion-nav-view>` displayed in a screen. 
 
 With this library, you can seamlessly port your mobile Ionic app to tablets using your existing templates!
 
