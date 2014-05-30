@@ -1,0 +1,32 @@
+<ion-view title="{{ message.subject }}">
+	
+	<ion-nav-bar class="bar-stable">
+	</ion-nav-bar>
+
+	<ion-content class="has-header">
+		<div class="list card" style="border-right: 1px solid #ddd">
+			<div class="item item-avatar">
+				<img src="{{ message.avatar }}">
+				<span class="item-note">2 hours ago</span>
+				<h2>{{ message.senderName }}</h2>
+				<p>{{ message.subject }}</p>
+			</div>
+			<div class="item" ng-if="message.content" style="white-space: normal;">
+				{{ message.content }}
+			</div>
+		</div>
+		<div class="list card" style="border-right: 1px solid #ddd">
+			<div class="item item-avatar">
+				<img src="http://ionicframework.com/img/docs/barrett.jpg">
+				<span class="item-note">sent now</span>
+				<h2>Dana</h2>
+				<p>RE: {{ message.subject }}</p>
+			</div>
+			<div class="item" ng-if="message.content" style="white-space: normal;">
+				<img src="http://i.telegraph.co.uk/multimedia/archive/02676/FACEBOOK-LIKE_2676878b.jpg" width="650"/>
+			</div>
+		</div>		
+	</ion-content>
+  
+  <multiple-views-support width="70%" />
+</ion-view>

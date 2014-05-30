@@ -1,0 +1,19 @@
+<ion-view title="Messages">
+	<ion-nav-bar class="bar-assertive">
+	</ion-nav-bar>
+	<ion-content class="has-header">
+		<div class="list">		
+			<a class="item item-avatar message"
+				ng-class="{ 'active': selectedMessageId === message.id }"
+				ng-click="changeMessage(message)"
+				ng-repeat="message in messages">
+				<img src="{{ message.avatar }}">
+				<span class="item-note">2 hours ago</span>
+				<h2>{{ message.senderName }}</h2>
+				<p>{{ message.subject }}<span ng-if="message.content"> - {{ message.content }}</span></p>
+			</a>
+		</div>
+	</ion-content>
+
+	<multiple-views-support width="30%" />
+</ion-view>
