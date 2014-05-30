@@ -17,6 +17,11 @@ angular.module('ionicMultipleViewsDemo')
 			{ id: 8, senderName: 'Joe', subject: 'I like trains', content: 'Trains are awesome. I like trains.', avatar: 'http://ionicframework.com/img/docs/spengler.jpg'},
 			{ id: 9, senderName: 'PayPal', subject: 'Payment received from joe@gmail.com', content: 'To see all transaction details, please log into your account.', avatar: 'http://ionicframework.com/img/docs/winston.jpg'},		
 			{ id: 10, senderName: 'eBay', subject: 'Free shipping on branded cameras', content: 'Good news! Starting December 20th, we will start shipping branded cameras!', avatar: 'http://ionicframework.com/img/docs/spengler.jpg'},			
+			{ id: 11, senderName: 'Slimer', subject: 'Need help!', content: 'Can you please help me with this thing?', avatar: 'http://ionicframework.com/img/docs/slimer.jpg'},
+			{ id: 12, senderName: 'Jordan', subject: 'What\'s up?', content: 'We haven\'t met for years!', avatar: 'http://ionicframework.com/img/docs/venkman.jpg'},
+			{ id: 13, senderName: 'Joe', subject: 'I like trains', content: 'Trains are awesome. I like trains.', avatar: 'http://ionicframework.com/img/docs/spengler.jpg'},
+			{ id: 14, senderName: 'PayPal', subject: 'Payment received from joe@gmail.com', content: 'To see all transaction details, please log into your account.', avatar: 'http://ionicframework.com/img/docs/winston.jpg'},		
+			{ id: 15, senderName: 'eBay', subject: 'Free shipping on branded cameras', content: 'Good news! Starting December 20th, we will start shipping branded cameras!', avatar: 'http://ionicframework.com/img/docs/spengler.jpg'},						
 		];
 
 		return {
