@@ -22,7 +22,7 @@ angular.module('ionicMultipleViewsDemo')
 	.controller('ViewMessageCtrl', function ($scope, $stateParams, MultipleViewsManager, MessageService) {
 		$scope.message = MessageService.get($stateParams.messageId);
 
-		MultipleViewsManager.updated(function (params) {
+		MultipleViewsManager.updated('view-message', function (params) {
 			$scope.message = MessageService.get(params.messageId);
 		});
 	});

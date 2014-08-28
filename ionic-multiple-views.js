@@ -25,17 +25,21 @@ angular.module('ionicMultipleViews', [])
 						var pane = element.parent();
 						var myView = pane.parent();
 						
-						// remove the current view name from the names list, 
-						// so we can get the other view name.
-						names.splice(names.indexOf(myView.attr('name')), 1)
-						var otherView = findView(names[0]);
+            var currentViewIndex = names.indexOf(myView.attr('name'));
+
+            if (currentViewIndex > 0) {
+                var left = 0;
+                
+                for (var i = 0; i < currentViewIndex; i++) {
+                  var view = findView(names[i]);
+                  var directiveScope = angular.element(view[0].querySelector('multiple-views-support')).scope().$$childTail;
+                  left += parseInt(directiveScope.width.replace('%', ''), 10);                 
+                }
+                
+                pane.css('left', left + '%');     
+            }
 				
 						pane.css('width', scope.width);
-						
-						if (myView[0].compareDocumentPosition(otherView[0]) 
-							& Node.DOCUMENT_POSITION_PRECEDING) {
-							pane.css('left', (100 - parseInt(scope.width.replace('%', ''), 10)) + '%');
-						}
 					}
 				}
 			}
@@ -50,13 +54,12 @@ angular.module('ionicMultipleViews', [])
 					throw 'Cannot use updateView in a single view layout. Please make sure that you are in a multiple views layout using ViewManager.isActive()';
 				}
 				
-				var views = $state.current.views;
-				var callback = viewCallbacks[$state.current.name];
+				var callback = viewCallbacks[viewName];
 				if (callback) {
 					callback(params);
 				} else {
 					pendingCalls.push({
-						stateName: $state.current.name,
+						viewName: viewName,
 						params: params
 					});
 				}
@@ -64,12 +67,12 @@ angular.module('ionicMultipleViews', [])
 			isActive: function () {
 				return $state.current.views && Object.keys($state.current.views).length > 1;
 			},
-			updated: function (callback) {
-				viewCallbacks[$state.current.name] = callback;
+			updated: function (name, callback) {
+				viewCallbacks[name] = callback;
 				
 				for (var i = 0; i < pendingCalls.length; i++) {
 					var call = pendingCalls[i];
-					if (call.stateName === $state.current.name) {
+					if (call.viewName === name) {
 						callback(call.params);
 						pendingCalls.splice(i, 1);
 						return;
